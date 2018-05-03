@@ -32,18 +32,42 @@ Select or create the project. If this is a creation, activate the Pub/sub API.
 
 ### Create a service account
 
-- Select the `IAM & admin > Service accounts` menu item then click on "CREATE SERVICE ACCOUNT".
-- Type in a name for the new service account (eg. akeneo-mq) and check the "Furnish a new private key" checkbox.
+- Select the `IAM & admin > Service accounts` menu item then click on **CREATE SERVICE ACCOUNT**.
+- Type in a name for the new service account (eg. akeneo-mq) and check the *Furnish a new private key* checkbox.
 - Click on "CREATE", the JSON credentials file should be downloaded automatically.
 - Rename the downloaded file to `gcp-credentials.json` and put it in the `src/Bimbus/config` folder.
 
 ### Create a topic
 
-- Go to the `Pub/Sub > Topics` menu and then click on "CREATE TOPIC".
+- Go to the `Pub/Sub > Topics` menu and then click on **CREATE TOPIC**.
 - On the next screen, select the newly created topic.
 - Then, type in the name of the new service account your just created and give it the "Pub/Sub Publisher" Role.
 
+### Create a subscription
+
+- Return to the `Pub/Sub > Topics` menu.
+- Click the button at the end of the created topic line and select *New subscription*.
+- Enter a name and click on create.
 
 ## Bundle configuration
 
-YTC
+- Move into the `src/Bimbus/Bundle/MQBundle/config/` folder.
+- Copy the `parameters.yml.dist` to `parameters.yml`.
+- Edit the `parameters.yml` file to fill in the `gcp.pubsub.project` and `gcp.pubsub.topic` keys:
+
+```yaml
+parameters:
+    gcp.pubsub.project: '<<gcp-project-id>>'
+    gcp.pubsub.topic: '<<last-part-of-topic>>'
+    gcp.pubsub.credentials: '%kernel.project_dir%/src/Bimbus/config/gcp-credentials.json'
+```
+
+## Test everything
+
+- Open the Akeneo UI and edit a product to check that saving works fine.
+- Use the `gcloud` CI to check that the message as been pushed to the topic:
+
+```bash
+gcloud config set project <<gcp-project-id>>
+gcloud pubsub subscriptions pull <<subscription name>>
+```
