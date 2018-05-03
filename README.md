@@ -3,11 +3,11 @@ A Message Queue bundle for the Akeneo PIM
 
 ## Principle
 
-This simple bundle allow to push a message in a Google Cloud Pub/Sub topic each time a product is modified.
+This simple bundle allows to push a message to a Google Cloud Pub/Sub topic each time a product is modified.
 
 ## Use case
 
-Combined with other services and orchestrated by and ESB, this allows to asynchronously process changes (BLOB for examples) and push them back to the PIM or to any other application (catalog, etc)
+Combined with other services orchestrated from an ESB, this allows to asynchronously process changes (BLOB for examples) and push them back to the PIM or to any other application (catalog, etc)
 
 We use this in a BIM environment to parse ArchiCAD 3D .gsm model files and inject the PIM data to generate up to date versions of 3D furniture libraries.
 
