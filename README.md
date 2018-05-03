@@ -3,9 +3,13 @@ A Message Queue bundle for the Akeneo PIM
 
 ## Installation
 
-Git clone into your PIM install `src/` folder:
+From your PIM project root folder, clone the repository:
 
-`git clone https://github.com/bimbus/mq-client-akeneo Bimbus`
+`git clone https://github.com/bimbus/mq-client-akeneo src/Bimbus`
+
+Then add the needed dependencies:
+
+`composer require google/cloud-pubsub`
 
 Edit the `app/AppKernel.php` file to reflect this:
 
@@ -18,7 +22,9 @@ Edit the `app/AppKernel.php` file to reflect this:
     }
  ```
 
-Empty your cache: `bin/console cache:clear --env=prod`
+Empty your cache: 
+
+`bin/console cache:clear --env=prod`
 
 ## Google Cloud Pub/Sub
 
