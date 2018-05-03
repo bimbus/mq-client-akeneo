@@ -75,7 +75,7 @@ parameters:
 ## Test everything
 
 - Open the Akeneo UI and edit a product to check that saving works fine.
-- Use the `gcloud` CI to check that the message as been pushed to the topic:
+- Use the `gcloud` CLI to check that the message as been pushed to the topic:
 
 ```bash
 gcloud config set project <<gcp-project-id>>
