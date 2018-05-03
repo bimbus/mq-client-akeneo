@@ -1,11 +1,13 @@
 # MQ Client for Akeneo
 A Message Queue bundle for the Akeneo PIM
 
-## Principles
+## Principle
 
 This simple bundle allow to push a message in a Google Cloud Pub/Sub topic each time a product is modified.
 
-Combined with an API Client, this allows to asynchronously process changes (BLOB for examples) and push them back to the PIM or to any other application (catalog, etc)
+## Use case
+
+Combined with other services and orchestrated by and ESB, this allows to asynchronously process changes (BLOB for examples) and push them back to the PIM or to any other application (catalog, etc)
 
 We use this in a BIM environment to parse ArchiCAD 3D .gsm model files and inject the PIM data to generate up to date versions of 3D furniture libraries.
 
@@ -77,5 +79,5 @@ parameters:
 
 ```bash
 gcloud config set project <<gcp-project-id>>
-gcloud pubsub subscriptions pull <<subscription name>>
+gcloud pubsub subscriptions pull <<subscription-name>>
 ```
