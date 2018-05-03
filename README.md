@@ -1,5 +1,13 @@
-# mq-client-akeneo
+# MQ Client for Akeneo
 A Message Queue bundle for the Akeneo PIM
+
+## Principles
+
+This simple bundle allow to push a message in a Google Cloud Pub/Sub topic each time a product is modified.
+
+Combined with an API Client, this allows to asynchronously process changes (BLOB for examples) and push them back to the PIM or to any other application (catalog, etc)
+
+We use this in a BIM environment to parse ArchiCAD 3D .gsm model files and inject the PIM data to generate up to date versions of 3D furniture libraries.
 
 ## Installation
 
@@ -51,7 +59,7 @@ Select or create the project. If this is a creation, activate the Pub/sub API.
 
 ## Bundle configuration
 
-- Move into the `src/Bimbus/Bundle/MQBundle/config/` folder.
+- Move into the `src/Bimbus/Bundle/MQBundle/Resources/config/` folder.
 - Copy the `parameters.yml.dist` to `parameters.yml`.
 - Edit the `parameters.yml` file to fill in the `gcp.pubsub.project` and `gcp.pubsub.topic` keys:
 
