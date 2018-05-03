@@ -1,0 +1,15 @@
+services:
+    bimbus.listener:
+        class: Bimbus\Bundle\MQBundle\EventListener\ProductModificationListener
+        arguments:
+            - '@bimbus.gc_mqclient'
+            - 'projects/%gcp.pubsub.project%/topics/%gcp.pubsub.topic%'
+        tags:
+            - { name: kernel.event_listener, event: akeneo.storage.post_save, method: onPostSave }
+
+    bimbus.gc_mqclient:
+        class: Google\Cloud\PubSub\PubSubClient
+        arguments:
+            -
+                 projectId: '%gcp.pubsub.project%'
+                 keyFilePath: '%gcp.pubsub.credentials%'
