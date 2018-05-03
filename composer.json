@@ -1,7 +1,7 @@
 {
     "name": "bimbus/mq-client-akeneo",
     "description": "A simple Pub/Sub MQ client to publish Akeneo products changes",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "type": "module",
     "authors": [
         {
