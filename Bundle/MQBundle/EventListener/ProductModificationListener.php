@@ -32,6 +32,8 @@ class ProductModificationListener
             'data' => "Updated product",
             'attributes' => [
                 'sku' => $subject->getIdentifier(),
+                'updated' => $subject->getUpdated(),
+                'enabled' => $subject->isEnabled(),
             ]
         ]);
     }
