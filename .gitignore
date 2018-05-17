@@ -1,4 +1,3 @@
 vendor/
 config/gcp-credentials.json
-Bundle/MQBundle/Resources/config/parameters.yml.dist
 Bundle/MQBundle/Resources/config/parameters.yml
