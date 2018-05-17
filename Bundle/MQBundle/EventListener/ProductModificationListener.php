@@ -29,11 +29,11 @@ class ProductModificationListener
         $topic = $this->mqclient->topic($this->topic);
 
         $topic->publish([
-            'data' => "Updated product",
+            'data' => 'Product #' . $subject->getId() . ' updated',
             'attributes' => [
                 'sku' => $subject->getIdentifier(),
-                'updated' => $subject->getUpdated(),
-                'enabled' => $subject->isEnabled(),
+                'updated' => $subject->getUpdated()->format('U'),
+                'enabled' => (string) $subject->isEnabled(),
             ]
         ]);
     }
