@@ -1,0 +1,4 @@
+parameters:
+    gcp.pubsub.project: ''
+    gcp.pubsub.topic: ''
+    gcp.pubsub.credentials: '%kernel.project_dir%/src/Bimbus/config/gcp-credentials.json'
